@@ -15,14 +15,13 @@ public class App {
                 new Funcionario("Zé", "111.111.111-01", 2500, "362")
         };
 
-        Comparator<Funcionario> comparadorFuncionario = new Comparator<Funcionario>() {
-            @Override
-            public int compare(Funcionario o1, Funcionario o2) {
-                return (int) (o1.getSalario()-o2.getSalario());
-            }
-        };
+        Arrays.sort(funcionarios);
+        System.out.println(Arrays.toString(funcionarios));
 
-        Arrays.sort(funcionarios, comparadorFuncionario);
+        Arrays.sort(funcionarios, (o1, o2) -> (int) (o1.getSalario()-o2.getSalario()));
+        System.out.println(Arrays.toString(funcionarios));
+
+        Arrays.sort(funcionarios, (f1,f2) -> f1.getNome().compareTo(f2.getNome()));
         System.out.println(Arrays.toString(funcionarios));
 
     }
